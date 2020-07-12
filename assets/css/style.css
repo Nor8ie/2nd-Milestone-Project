@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    max-width: 1440px;
+    max-height: 1024px;
+    background: linear-gradient( 360deg, rgba(227, 155, 155, 0.357364) 1.4%, rgba(239, 17, 17, 0.84) 52.61%, rgba(255, 255, 255, 0) 100%) center no-repeat;
+}
+
+body {
+    font-family: "Redressed", "Lato";
+}
+
+.outer-circle {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: relative;
+    background: black;
+    z-index: -1;
+}
+
+.inner-circle {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0px 0px -40px;
+    background: #c4c4c4;
+    z-index: 10;
+}
+
+.inner-circle p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+#score-holder,
+#main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+#round-counter {
+    margin-right: 65px;
+}
+
+#round-counter h2 {
+    text-align: center;
+}
+
+#player-score,
+#computer-score,
+#score-text h2 {
+    left: 20px;
+}
+
+#game-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#game-buttons button,
+#player-choices button {
+    width: 200px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    border-radius: 20px;
+    font-family: "Redressed", "Lato";
+    background-color: black;
+    color: whitesmoke;
+}
+
+#player-choices .choice-rock,
+#player-choices .choice-paper,
+#player-choices .choice-scissors {
+    background-color: #c4c4c4;
+    color: black;
+}
+
+#player-score,
+#computer-score {
+    display: flex;
+    position: relative;
+}
+
+#player-score h2,
+#computer-score h2,
+#score-text h2 {
+    text-align: center;
+    position: relative;
+    top: 50px;
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    padding: 5px auto;
+}
+
+#player-score h2,
+#computer-score h2 {
+    background-color: #c4c4c4;
+    border: 0.5px solid #423f3f;
+}
+
+#player-board,
+#computer-board {
+    height: 460px;
+    width: 500px;
+    border-radius: 5%;
+    border: 2px solid black;
+    margin-right: 10px;
+    text-align: center;
+    position: relative;
+    left: 20px;
+    background-color: #c4c4c4;
+}
+
+#player-board h2,
+#computer-board h2 {
+    position: relative;
+    top: 10px;
+}
+
+#player-board img {
+    transform: rotateY(-180deg);
+    left: 0;
+}
+
+#computer-board img {
+    right: 0;
+}
+
+img {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    border: 1px solid blue;
+    object-fit: cover;
+}
+
+#player-choices {
+    display: inline-block;
+    position: relative;
+    margin-top: 40px;
+    margin-right: 150px;
+    left: 40%;
+}
+
+#modals {
+    display: none;
+}

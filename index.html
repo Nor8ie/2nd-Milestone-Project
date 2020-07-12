@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Redressed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Rock-Paper-Scissors</title>
+</head>
+
+<body>
+    <header>
+        <div id="score-holder">
+            <div id="round-counter">
+                <div class="outer-circle">
+                    <div class="inner-circle">
+                        <p>07</p>
+                    </div>
+                </div>
+                <h2>Round</h2>
+            </div>
+            <div id="player-score">
+                <div>
+                    <h2>Player</h2>
+                </div>
+                <div class="outer-circle">
+                    <div class="inner-circle">
+                        <p>01</p>
+                    </div>
+                </div>
+            </div>
+            <div id="score-text">
+                <h2>Score</h2>
+            </div>
+            <div id="computer-score">
+                <div class="outer-circle">
+                    <div class="inner-circle">
+                        <p>08</p>
+                    </div>
+                </div>
+                <h2>Computer</h2>
+            </div>
+        </div>
+    </header>
+    <section id="modals">
+        <div class="modal-name visible">
+            <label for="player-name"></label>
+            <input type="text" id="player-name">Name</input>
+            <button>Add Me!</button>
+            <button>Cancel</button>
+        </div>
+        <div class="modal-logs visible">
+            <div class="game-stats"></div>
+            <button>Close</button>
+        </div>
+    </section>
+
+    <section>
+        <div id="main">
+            <div id="game-buttons">
+                <button class="game-start">Game Start</button>
+                <button class="game-log">Game Log</button>
+            </div>
+            <div id="player-board">
+                <h2>WON</h2>
+                <img src="/assets/img/paper.png" alt="Paper">
+            </div>
+            <div id="computer-board">
+                <h2>WON</h2>
+                <img src="/assets/img/paper.png" alt="Paper">
+            </div>
+        </div>
+        <div id="player-choices">
+            <button class="choice-rock">Rock</button>
+            <button class="choice-paper">Paper</button>
+            <button class="choice-scissors">Scissors</button>
+        </div>
+    </section>
+
+    <script src="assets/script/app.js" type="text/javascript"></script>
+</body>
+
+</html>
