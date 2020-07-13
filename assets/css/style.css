@@ -4,37 +4,62 @@
     box-sizing: border-box;
 }
 
-html {
-    background: linear-gradient( 360deg, rgba(227, 155, 155, 0.357364) 1.4%, rgba(239, 17, 17, 0.84) 52.61%, rgba(255, 255, 255, 0) 100%) center no-repeat;
-}
-
+html,
 body {
     font-family: "Redressed", "Lato";
     width: 100vw;
     min-width: 100%;
     height: 100vh;
     min-height: 100%;
+    background: linear-gradient( 360deg, rgba(227, 155, 155, 0.357364) 1.4%, rgba(239, 17, 17, 0.84) 52.61%, rgba(255, 255, 255, 0) 100%) center no-repeat;
+}
+
+#score-container,
+#main-container,
+#game-control-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.3fr 2fr;
+    grid-template-rows: 1fr 0.2fr;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+#score-container {
+    align-items: center;
+}
+
+#main-container {
+    align-items: space-around;
+}
+
+.game-start {
+    grid-area: 1/2 / 3/3;
+}
+
+.game-log {
+    grid-area: 1/4 / 3/5;
+    row-gap: 10%;
 }
 
 .outer-circle {
-    height: 120px;
-    width: 120px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     border: 1px solid black;
     position: relative;
     background: black;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 .inner-circle {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     border: 1px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -40px 0px 0px -40px;
+    margin: -30px 0px 0px -30px;
     background: #c4c4c4;
     z-index: 10;
 }
@@ -47,95 +72,49 @@ body {
     font-size: 2rem;
 }
 
-#score-holder,
-#main {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-top: 20px;
-}
-
-#round-counter {
-    margin-right: 120px;
-}
-
-#round-counter h2 {
-    text-align: center;
-}
-
-#game-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-#game-buttons button,
-#player-choices button {
-    width: 200px;
-    height: 40px;
-    font-size: 1.5rem;
-    margin-right: 10px;
-    border-radius: 20px;
-    font-family: "Redressed", "Lato";
-    background-color: black;
-    color: whitesmoke;
-}
-
-#player-choices .choice-rock,
-#player-choices .choice-paper,
-#player-choices .choice-scissors {
-    background-color: #c4c4c4;
-    color: black;
+.label-round-counter {
+    grid-area: 2 / 1 / 3 / 2;
 }
 
 #player-score,
 #computer-score {
     display: flex;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
 }
 
-#player-score h2,
-#computer-score h2,
-#score-text h2 {
-    text-align: center;
-    position: relative;
-    top: 50px;
-    width: 250px;
-    height: 35px;
-    border-radius: 10px;
-    padding: 5px auto;
+#round-counter {
+    padding-top: 10px;
 }
-
-#score-text h2 {
-    width: 60px;
-}
-
-
-/* #score-text h2 {
-    width: 20vh;
-    position: relative;
-    text-align: center;
-    margin-left: 20px;
-    top: 50px;
-} */
 
 #player-score h2,
 #computer-score h2 {
     background-color: #c4c4c4;
     border: 0.5px solid #423f3f;
+    width: 200px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
 }
 
 #player-board,
 #computer-board {
-    height: 390px;
-    width: 430px;
+    height: 350px;
+    width: 400px;
     border-radius: 5%;
     border: 2px solid black;
-    margin-right: 10px;
     text-align: center;
-    position: relative;
-    left: 20px;
     background-color: #c4c4c4;
+    position: relative;
+}
+
+#computer-board {
+    grid-area: 1 / 4 / 3 / 5;
+}
+
+#player-board {
+    grid-area: 1 / 2 / 3 / 3;
 }
 
 #player-board h2,
@@ -154,8 +133,8 @@ body {
 }
 
 img {
-    height: 400px;
-    width: 400px;
+    height: 325px;
+    width: 325px;
     position: absolute;
     bottom: 0;
     border: 1px solid blue;
@@ -163,57 +142,37 @@ img {
 }
 
 #player-choices {
-    /* display: inline-block; */
-    /* position: relative; */
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin: 40px auto;
+    grid-area: 1 /1 / 3 /2;
+    justify-content: space-around;
+}
+
+#game-control-container button,
+#player-choices button {
+    width: 200px;
+    height: 40px;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    font-family: "Redressed", "Lato";
+    background-color: black;
+    color: whitesmoke;
+}
+
+footer {
+    margin-top: 40px;
 }
 
 #modals {
     display: none;
 }
 
-@media screen and (max-width: 1078px) {
-    .outer-circle {
-        height: 80px;
-        width: 80px;
-    }
-    .inner-circle {
-        height: 50px;
-        width: 50px;
-        margin: -25px 0px 0px -25px;
-    }
-    .inner-circle p {
-        font-size: 1rem;
-    }
-    #player-score h2,
-    #computer-score h2 {
-        width: 200px;
-        height: 35px;
-        top: 25px;
-        font-size: 1.2rem;
-    }
+@media screen and (max-width: 998px) {
     #computer-board,
     #player-board {
         height: 250px;
-        width: 290px;
-    }
-    #score-text h2 {
-        width: 50px;
-        top: 35px;
-        font-size: 1.2rem;
-    }
-    #game-buttons button,
-    #player-choices button {
-        width: 130px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    #round-counter {
-        margin-right: 30px;
-    }
-    #round-counter h2 {
-        font-size: 1.2rem;
+        width: 300px;
     }
     img {
         height: auto;
@@ -221,42 +180,59 @@ img {
     }
 }
 
-@media screen and (max-width: 768px) {
-    #score-holder {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        width: auto;
+@media screen and (max-width: 800px) {
+    #score-container,
+    #main-container {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 0.2fr 1fr 0.1fr;
+        justify-content: end;
     }
-    #score-text h2 {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        font-size: 1rem;
+    #score-text {
+        grid-area: 1 / 2 / 2 / 3;
     }
     #round-counter {
-        margin-right: 80px;
+        grid-area: 2 / 1 / 3 / 2;
     }
-    #game-buttons {
-        position: absolute;
-        bottom: 5px;
-        display: inline;
+    .label-round-counter {
+        grid-area: 3 / 1 / 4 / 2;
+        align-self: start;
     }
-    #round-counter h2,
-    #game-buttons button,
-    #player-choices button {
-        font-size: 1rem;
+    #player-score {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    #computer-score {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+    #player-board {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    #computer-board {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    #game-control-container {
+        margin-top: 0;
+    }
+    footer {
+        margin-top: 0;
     }
     #computer-board,
     #player-board {
-        height: 200px;
-        width: 240px;
+        height: 150px;
+        width: 190px;
+        border-radius: 20px;
+        justify-self: start;
+        margin-left: 30px;
+    }
+    #score-text {
+        margin-top: 20px;
+    }
+    #computer-board h2,
+    #player-board h2 {
+        font-size: 1.2rem;
     }
 }
 
 @media screen and (max-width: 540px) {
-    #main {
-        flex-wrap: wrap;
-    }
     .outer-circle {
         height: 60px;
         width: 60px;
@@ -271,9 +247,19 @@ img {
     }
     #player-score h2,
     #computer-score h2 {
-        width: 200px;
+        width: 150px;
         height: 25px;
         top: 15px;
+        font-size: 1rem;
+    }
+    /* #round-counter,
+    .label-round-counter {
+        justify-self: end;
+    } */
+    .label-round-counter h2,
+    #score-text h2,
+    #game-control-container button,
+    #player-choices button {
         font-size: 1rem;
     }
     #computer-board,
@@ -281,16 +267,16 @@ img {
         height: 150px;
         width: 190px;
         border-radius: 20px;
+        justify-self: start;
+        margin-left: 30px;
     }
-    #score-holder {
-        justify-content: flex-end;
-    }
-    #round-counter {
-        margin-right: auto;
-    }
-    #game-buttons button,
+    #game-control-container button,
     #player-choices button {
         width: 90px;
         height: 30px;
+    }
+    #player-choices {
+        justify-self: end;
+        align-self: space-between;
     }
 }
