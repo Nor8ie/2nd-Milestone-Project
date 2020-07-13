@@ -5,13 +5,15 @@
 }
 
 html {
-    max-width: 1440px;
-    max-height: 1024px;
     background: linear-gradient( 360deg, rgba(227, 155, 155, 0.357364) 1.4%, rgba(239, 17, 17, 0.84) 52.61%, rgba(255, 255, 255, 0) 100%) center no-repeat;
 }
 
 body {
     font-family: "Redressed", "Lato";
+    width: 100vw;
+    min-width: 100%;
+    height: 100vh;
+    min-height: 100%;
 }
 
 .outer-circle {
@@ -54,17 +56,11 @@ body {
 }
 
 #round-counter {
-    margin-right: 65px;
+    margin-right: 120px;
 }
 
 #round-counter h2 {
     text-align: center;
-}
-
-#player-score,
-#computer-score,
-#score-text h2 {
-    left: 20px;
 }
 
 #game-buttons {
@@ -110,6 +106,19 @@ body {
     padding: 5px auto;
 }
 
+#score-text h2 {
+    width: 60px;
+}
+
+
+/* #score-text h2 {
+    width: 20vh;
+    position: relative;
+    text-align: center;
+    margin-left: 20px;
+    top: 50px;
+} */
+
 #player-score h2,
 #computer-score h2 {
     background-color: #c4c4c4;
@@ -118,8 +127,8 @@ body {
 
 #player-board,
 #computer-board {
-    height: 460px;
-    width: 500px;
+    height: 390px;
+    width: 430px;
     border-radius: 5%;
     border: 2px solid black;
     margin-right: 10px;
@@ -154,13 +163,134 @@ img {
 }
 
 #player-choices {
-    display: inline-block;
-    position: relative;
-    margin-top: 40px;
-    margin-right: 150px;
-    left: 40%;
+    /* display: inline-block; */
+    /* position: relative; */
+    text-align: center;
+    margin: 40px auto;
 }
 
 #modals {
     display: none;
+}
+
+@media screen and (max-width: 1078px) {
+    .outer-circle {
+        height: 80px;
+        width: 80px;
+    }
+    .inner-circle {
+        height: 50px;
+        width: 50px;
+        margin: -25px 0px 0px -25px;
+    }
+    .inner-circle p {
+        font-size: 1rem;
+    }
+    #player-score h2,
+    #computer-score h2 {
+        width: 200px;
+        height: 35px;
+        top: 25px;
+        font-size: 1.2rem;
+    }
+    #computer-board,
+    #player-board {
+        height: 250px;
+        width: 290px;
+    }
+    #score-text h2 {
+        width: 50px;
+        top: 35px;
+        font-size: 1.2rem;
+    }
+    #game-buttons button,
+    #player-choices button {
+        width: 130px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    #round-counter {
+        margin-right: 30px;
+    }
+    #round-counter h2 {
+        font-size: 1.2rem;
+    }
+    img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #score-holder {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: auto;
+    }
+    #score-text h2 {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        font-size: 1rem;
+    }
+    #round-counter {
+        margin-right: 80px;
+    }
+    #game-buttons {
+        position: absolute;
+        bottom: 5px;
+        display: inline;
+    }
+    #round-counter h2,
+    #game-buttons button,
+    #player-choices button {
+        font-size: 1rem;
+    }
+    #computer-board,
+    #player-board {
+        height: 200px;
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #main {
+        flex-wrap: wrap;
+    }
+    .outer-circle {
+        height: 60px;
+        width: 60px;
+    }
+    .inner-circle {
+        height: 40px;
+        width: 40px;
+        margin: -20px 0px 0px -20px;
+    }
+    .inner-circle p {
+        font-size: 0.8rem;
+    }
+    #player-score h2,
+    #computer-score h2 {
+        width: 200px;
+        height: 25px;
+        top: 15px;
+        font-size: 1rem;
+    }
+    #computer-board,
+    #player-board {
+        height: 150px;
+        width: 190px;
+        border-radius: 20px;
+    }
+    #score-holder {
+        justify-content: flex-end;
+    }
+    #round-counter {
+        margin-right: auto;
+    }
+    #game-buttons button,
+    #player-choices button {
+        width: 90px;
+        height: 30px;
+    }
 }
