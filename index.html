@@ -15,7 +15,7 @@
             <div id="round-counter">
                 <div class="outer-circle">
                     <div class="inner-circle">
-                        <p>07</p>
+                        <p class="label-counter">07</p>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <h2>Player</h2>
                 <div class="outer-circle">
                     <div class="inner-circle">
-                        <p>01</p>
+                        <p class="label-player">01</p>
                     </div>
                 </div>
             </div>
@@ -37,20 +37,26 @@
                 <h2>Computer</h2>
                 <div class="outer-circle">
                     <div class="inner-circle">
-                        <p>08</p>
+                        <p class="label-computer">08</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <section id="modals">
-        <div class="modal-name visible">
-            <label for="player-name"></label>
-            <input type="text" id="player-name">Name</input>
-            <button>Add Me!</button>
-            <button>Cancel</button>
+        <div id="backdrop"></div>
+        <div class="modal-name">
+            <h2>Enter your name:</h2>
+            <div>
+                <label for="player-name"></label>
+                <input type="text" id="player-name" placeholder="Type in your name!"></input>
+            </div>
+            <div class="modal-action-buttons">
+                <button>Let's Play!</button>
+                <button>Cancel</button>
+            </div>
         </div>
-        <div class="modal-logs visible">
+        <div class="modal-logs">
             <div class="game-stats"></div>
             <button>Close</button>
         </div>
@@ -75,7 +81,7 @@
     </section>
     <footer>
         <div id="game-control-container">
-            <button class="game-start">Game Start</button>
+            <button class="game-start">Click to Play!</button>
             <button class="game-log">Game Log</button>
         </div>
     </footer>

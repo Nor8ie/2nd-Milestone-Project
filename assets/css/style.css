@@ -158,15 +158,156 @@ img {
     font-family: "Redressed", "Lato";
     background-color: black;
     color: whitesmoke;
+    cursor: pointer;
+}
+
+#player-choices .choice-rock,
+#player-choices .choice-paper,
+#player-choices .choice-scissors {
+    background-color: #c4c4c4;
+    color: black;
+    font-weight: 600;
+}
+
+#player-choices .choice-rock:hover,
+#player-choices .choice-paper:hover,
+#player-choices .choice-scissors:hover {
+    background-color: rgba(239, 17, 17, 0.84);
+    color: whitesmoke;
+    box-shadow: 10px 10px 5px #c4c4c4;
+}
+
+#game-control-container .game-start:hover,
+#game-control-container .game-log:hover {
+    background-color: #c4c4c4;
+    color: black;
+    box-shadow: 10px 10px 5px black;
+}
+
+.win {
+    background-color: rgba(239, 17, 17, 0.84);
 }
 
 footer {
     margin-top: 40px;
 }
 
-#modals {
+
+/*************************** MODAL & BACKDROP ******************************/
+
+#backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+    pointer-events: none;
     display: none;
 }
+
+#backdrop.visible {
+    display: block;
+    pointer-events: all;
+}
+
+.modal-name {
+    font-family: inherit;
+    position: fixed;
+    z-index: 100;
+    background: #c4c4c4;
+    border-radius: 10px;
+    width: 80%;
+    top: 20vh;
+    height: 40vh;
+    left: 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    display: none;
+    padding: 1rem;
+    text-align: center;
+}
+
+.modal-action-buttons button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    width: 150px;
+    height: 40px;
+    background-color: rgba(239, 17, 17, 0.84);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.modal-action-buttons button:hover {
+    background-color: black;
+    color: whitesmoke;
+    box-shadow: 10px 10px 5px whitesmoke;
+}
+
+#player-name {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: black;
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    margin: 20px 20px;
+}
+
+#player-name:focus {
+    background-color: rgba(239, 17, 17, 0.84);
+    color: whitesmoke;
+}
+
+.modal-name.visible {
+    display: block;
+    animation: fade-slide 0.5s ease-out forwards;
+}
+
+
+/************************* ANIMATIONS ******************************/
+
+@keyframes fade-slide {
+    from {
+        transform: translateY(-5rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shakeHand {
+    0% {
+        transform: translateY(0px);
+    }
+    15% {
+        transform: translateY(-50px);
+    }
+    25% {
+        transform: translateY(0px);
+    }
+    35% {
+        transform: translateY(-50px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    65% {
+        transform: translateY(-50px);
+    }
+    75% {
+        transform: translateY(0px);
+    }
+    85% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+}
+
+
+/************************* MEDIA QUERIES **********************************/
 
 @media screen and (max-width: 998px) {
     #computer-board,
@@ -252,10 +393,6 @@ footer {
         top: 15px;
         font-size: 1rem;
     }
-    /* #round-counter,
-    .label-round-counter {
-        justify-self: end;
-    } */
     .label-round-counter h2,
     #score-text h2,
     #game-control-container button,
