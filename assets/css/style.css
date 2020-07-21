@@ -32,11 +32,15 @@ body {
     align-items: space-around;
 }
 
+.opaque {
+    opacity: 0;
+}
+
 .game-start {
     grid-area: 1/2 / 3/3;
 }
 
-.game-log {
+.game-instructions {
     grid-area: 1/4 / 3/5;
     row-gap: 10%;
 }
@@ -103,9 +107,9 @@ body {
     height: 350px;
     width: 400px;
     border-radius: 5%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
-    background-color: #c4c4c4;
+    /* background-color: #c4c4c4; */
     position: relative;
 }
 
@@ -121,6 +125,7 @@ body {
 #computer-board h2 {
     position: relative;
     top: 10px;
+    text-align: center;
 }
 
 #player-board img {
@@ -137,7 +142,6 @@ img {
     width: 325px;
     position: absolute;
     bottom: 0;
-    border: 1px solid blue;
     object-fit: cover;
 }
 
@@ -159,6 +163,7 @@ img {
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
+    outline: none;
 }
 
 #player-choices .choice-rock,
@@ -178,7 +183,7 @@ img {
 }
 
 #game-control-container .game-start:hover,
-#game-control-container .game-log:hover {
+#game-control-container .game-instructions:hover {
     background-color: #c4c4c4;
     color: black;
     box-shadow: 10px 10px 5px black;
@@ -198,7 +203,7 @@ footer {
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.75);
-    z-index: 10;
+    z-index: 2;
     pointer-events: none;
     display: none;
 }
@@ -208,7 +213,7 @@ footer {
     pointer-events: all;
 }
 
-.modal-name {
+#modal-name {
     font-family: inherit;
     position: fixed;
     z-index: 100;
@@ -224,7 +229,9 @@ footer {
     text-align: center;
 }
 
-.modal-action-buttons button {
+.modal-action-buttons button,
+#modal-instructions button,
+.modal-logs button {
     font-family: inherit;
     font-size: 1.2rem;
     width: 150px;
@@ -232,12 +239,16 @@ footer {
     background-color: rgba(239, 17, 17, 0.84);
     border-radius: 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+    outline: none;
 }
 
-.modal-action-buttons button:hover {
+.modal-action-buttons button:hover,
+#modal-instructions button:hover {
     background-color: black;
     color: whitesmoke;
     box-shadow: 10px 10px 5px whitesmoke;
+    cursor: pointer;
 }
 
 #player-name {
@@ -255,9 +266,61 @@ footer {
     color: whitesmoke;
 }
 
-.modal-name.visible {
+#modal-name.visible,
+#modal-instructions.visible {
     display: block;
     animation: fade-slide 0.5s ease-out forwards;
+}
+
+#modal-instructions,
+.modal-logs {
+    position: relative;
+    width: 80vw;
+    height: 70vh;
+    border-radius: 20px;
+    padding: 10px 30px;
+    background-color: #c4c4c4;
+    font-size: 1rem;
+    left: 10%;
+    box-shadow: 10px 10px 5px rgba(239, 17, 17, 0.84);
+    display: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 3;
+}
+
+#modal-instructions h2 {
+    text-align: center;
+}
+
+ol {
+    line-height: 150%;
+    list-style: decimal inside;
+}
+
+ul {
+    list-style: square inside;
+    margin-left: 15px;
+}
+
+#modal-instructions button {
+    position: relative;
+    left: 50%;
+    margin-left: -75px;
+}
+
+.visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    pointer-events: visible;
+    animation: fade-slide 0.5s ease-out forwards;
+}
+
+.modal-logs span {
+    color: rgba(239, 17, 17, 0.84);
+    font-size: 500;
 }
 
 
